@@ -11,20 +11,17 @@ print('currentDT is: {a} | Date_time is: {b}'.format(a=currentDT, b=Date_time))
 ssm = boto3.client('ssm')
 
 USERNAME = ssm.get_parameter(
-    Name="/assignment/Name"
+    Name="/assignment/Name", WithDecryption=False
 )
 
 USERVALUE = ssm.get_parameter(
-    Name="/assignment/Value"
+    Name="/assignment/Value", WithDecryption=False
 )
 
 USERNAME = USERNAME['Parameter']['Value']
 USERVALUE = USERVALUE['Parameter']['Value']
 
 BUCKET_NAME = 'demo-document-bucket-1234'
-
-#print('USERNAME:', USERNAME)
-#print('USERVALUE:', USERVALUE)
 
 # Lambda execution starts here.
 def handler(event, context):
@@ -33,7 +30,7 @@ def handler(event, context):
     string = USERNAME + ':' + USERVALUE
     encoded_string = string.encode("utf-8")
 
-    file_name = "file_from_s3.txt"
+    file_name = "file_from_s3_"+Date_time+".txt"
     lambda_path = "/tmp/" + file_name
     s3_path = file_name
 
