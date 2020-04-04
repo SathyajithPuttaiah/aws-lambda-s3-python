@@ -17,9 +17,9 @@ Lambda function to perform S3 write
   
    # Create IAM Roles
     aws --profile sandbox cloudformation create-stack --stack-name MySkillsDemoIAMRoles --template-body file://iam.yaml --capabilities CAPABILITY_NAMED_IAM
-    aws --profile sandbox cloudformation create-stack --stack-name MySkillsDemoIAMRoles --template-body file://pre-requisite.yaml --capabilities CAPABILITY_NAMED_IAM
+    aws --profile sandbox cloudformation create-stack --stack-name MySkillsDemoIAMRolesPR --template-body file://pre-requisite.yaml --capabilities CAPABILITY_NAMED_IAM
    
-   **Note** :: As these commands are being executed in the context of an IAM user, the IAM user need to he added in the principal for S3 bucket policy and allow usage block in KMS
+   **Note** :: As these commands are being executed in the context of an IAM user, the IAM user need to be added in the principal for S3 bucket policy and allow usage block in KMS
   
   **Example :: S3 Bucket policy**
   
