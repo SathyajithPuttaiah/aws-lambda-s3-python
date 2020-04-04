@@ -23,8 +23,8 @@ USERVALUE = USERVALUE['Parameter']['Value']
 
 BUCKET_NAME = 'demo-document-bucket-1234'
 
-print('USERNAME:', USERNAME)
-print('USERVALUE:', USERVALUE)
+#print('USERNAME:', USERNAME)
+#print('USERVALUE:', USERVALUE)
 
 # Lambda execution starts here.
 def handler(event, context):
